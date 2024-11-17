@@ -4,7 +4,7 @@ import { scenes } from "./scenes";
 
 import "./style.module.css";
 
-const game = new Phaser.Game({
+new Phaser.Game({
   type: Phaser.AUTO,
   title: 'RPG',
   width: 800,

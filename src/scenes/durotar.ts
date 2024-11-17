@@ -33,7 +33,7 @@ export class Durotar extends Phaser.Scene {
         this.load.tilemapTiledJSON('map', this.map.DUROTAR.map);
         this.load.image(TILES.DUROTAR, this.map.DUROTAR.image);
 
-        this.load.spritesheet(SPRITES.PLAYER, `${this.charactersPath}/alliance.png`, { 
+        this.load.spritesheet(SPRITES.PLAYER.base, `${this.charactersPath}/alliance.png`, { 
             frameWidth: DIMS.PLAYER.WIDTH, 
             frameHeight: DIMS.PLAYER.HEIGHT 
         });
@@ -41,21 +41,21 @@ export class Durotar extends Phaser.Scene {
 
     create() {
         const map = this.make.tilemap({ key: 'map' });
-        const tileset: Phaser.Tilemaps.Tileset = map.addTilesetImage(
+        const tileset = map.addTilesetImage(
             TILES.DUROTAR, 
             TILES.DUROTAR, 
             DIMS.TILE.HEIGHT,
             DIMS.TILE.WIDTH
         );  
 
-        const groundLayer = map.createLayer(LAYERS.GROUND, tileset, 0, 0);
-        const wallLayer = map.createLayer(LAYERS.WALLS, tileset, 0, 0);
+        map.createLayer(LAYERS.GROUND, tileset as Phaser.Tilemaps.Tileset, 0, 0);
+        map.createLayer(LAYERS.WALLS, tileset as Phaser.Tilemaps.Tileset, 0, 0);
 
         this.player = new Player(this, 400, 250, SPRITES.PLAYER);
         
     }   
 
-    update(time: number, delta: number): void {
+    update(_: any, delta: number): void {
         this.player?.update(delta);
     }
 }

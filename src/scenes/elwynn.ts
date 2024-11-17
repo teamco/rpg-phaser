@@ -59,7 +59,7 @@ export class Elwynn extends Phaser.Scene {
 
     create() {
         const map = this.make.tilemap({ key: this.mapKey });
-        const tileset: Phaser.Tilemaps.Tileset = map.addTilesetImage(
+        const tileset = map.addTilesetImage(
             TILES.ELWYNN, 
             TILES.ELWYNN, 
             DIMS.TILE.HEIGHT,
@@ -68,9 +68,9 @@ export class Elwynn extends Phaser.Scene {
 
         initLayers(MAPS.ELWYNN);
 
-        const groundLayer = map.createLayer(LAYERS.GROUND, tileset, 0, 0);
+        map.createLayer(LAYERS.GROUND, tileset as Phaser.Tilemaps.Tileset, 0, 0);
         
-        const wallLayer = map.createLayer(LAYERS.WALLS, tileset, 0, 0);
+        const wallLayer = map.createLayer(LAYERS.WALLS, tileset as Phaser.Tilemaps.Tileset, 0, 0);
         wallLayer?.setCollisionByExclusion([-1]);
 
         this.player = new Player(this, 400, 250, SPRITES.PLAYER);
@@ -94,7 +94,7 @@ export class Elwynn extends Phaser.Scene {
         this.player.setCollideWorldBounds(true);
         this.player.setEnemies([...this.boars]);
 
-        this.physics.add.collider(this.player, wallLayer);
+        this.physics.add.collider(this.player, wallLayer as Phaser.Tilemaps.TilemapLayer);
 
         this.killsText = this.add.text(600, 10, `Kills: ${this.player?.kills}`, {
             fontFamily: 'monospace, Arial, sans-serif',
@@ -105,7 +105,7 @@ export class Elwynn extends Phaser.Scene {
         this.killsText?.setScrollFactor(0);
     }   
 
-    update(time: number, delta: number): void {
+    update(_: any, delta: number): void {
         this.player?.update(delta);
 
         this.boars.forEach((boar: Enemy) => {

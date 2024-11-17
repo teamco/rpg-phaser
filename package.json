@@ -1,5 +1,6 @@
 {
-  "name": "phaser.js",
+  "homepage": "https://teamco.github.io/rpg-phaser/",
+  "name": "rpg-phaser",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,6 +10,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@types/node": "^22.9.0",
     "typescript": "~5.6.2",
     "vite": "^5.4.10"
   },

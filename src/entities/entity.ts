@@ -3,7 +3,7 @@ export class Entity extends Phaser.Physics.Arcade.Sprite {
     health: number;
 
     constructor(scene: Phaser.Scene, x: number, y: number, texture: string, type?: string) {
-        super(scene, x, y, texture);
+        super(scene, x, y, texture, type);
 
         this.scene = scene;
 
