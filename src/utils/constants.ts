@@ -42,7 +42,6 @@ export const DIMS: TDIMS = {
     }
 }
 
-
 type TLAYERS = {
     [key: string]: string;
 }
@@ -56,14 +55,20 @@ export const initLayers = (json: { layers: { name: string }[] }): void => {
 }
 
 type ISPRITES = {
-    PLAYER: string;
+    PLAYER: {
+        base: string,
+        fight: string
+    };
     BOAR: {
         base: string
     };
 }
 
 export const SPRITES: ISPRITES = {
-    PLAYER: 'player',
+    PLAYER: {
+        base: 'player',
+        fight: 'fight'
+    },
     BOAR: {
         base: 'boar'
     }

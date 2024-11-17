@@ -87,6 +87,7 @@ export class Enemy extends Entity {
 
             if (distanceToPlayer < this.attackRange) {
                 this.setVelocity(0, 0);
+                this.attack(player);
             }
 
             if (distancePosition > this.followRange) {
@@ -96,8 +97,12 @@ export class Enemy extends Entity {
         }
     }
 
-    attack(target: Entity): void {
+    attack(target: Entity | undefined): void {
         const time = Math.floor(this.scene.game.loop.time);
+
+        if (time % 2000 <= 20) {
+            target?.takeDamage(10);
+        }        
     }
 
     takeDamage(damage: number): void {
@@ -117,5 +122,7 @@ export class Enemy extends Entity {
         this.destroy();
 
         this.isAlive = false;
+
+        this.player?.addKill();
     }
 }
