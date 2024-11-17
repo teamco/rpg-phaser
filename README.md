@@ -5,6 +5,9 @@
 
 Welcome to the RPG Phaser project! This project is a role-playing game (RPG) built using the Phaser framework, a popular HTML5 game framework. The project is set up with modern JavaScript tooling, including TypeScript and Vite.
 
+<img width="823" alt="Screenshot 2024-11-17 at 10 43 05" src="https://github.com/user-attachments/assets/6627e88d-57cd-4ad9-a8bf-b62a23d7cbcd">
+
+
 ## Project Homepage
 
 For more information and live demos, visit the [project homepage](https://teamco.github.io/rpg-phaser/).
