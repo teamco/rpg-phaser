@@ -18,7 +18,7 @@ export class Durotar extends Phaser.Scene {
     constructor() {
         super({ key: 'durotar' });
 
-        this.assetsPath = 'src/assets';
+        this.assetsPath = '../assets';
         this.charactersPath = `${this.assetsPath}/characters`;
 
         this.map = {
